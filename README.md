@@ -2,16 +2,14 @@
 
 ## About
 
-- This image does not contain MySQL, it needs to be linked
 - Contains both Providence and Pawtucket2
+- Contains mysql
 - Pawtucket is accessed by `https://domain_or_ipaddress:port/`
 - Providence is accessed by `https://domain_or_ipaddress:port/providence`
 
 ## Note
 
 You should not use the `latest` tag, it is unstable and can break.
-
-Please use from tag 1.0.0 onwards.
 
 The `DISPLAY_NAME` is the name of your archive that will show in the tab title and on Pawtucket.
 
@@ -20,6 +18,10 @@ The `DISPLAY_NAME` is the name of your archive that will show in the tab title a
 If you fork the repo and make some changes that other's can use as well, please contribute them back as a PR!
 
 Thanks to @martjanz for contributing.
+
+## Image build
+
+`docker build --tag collective:latest .`
 
 ## Usage with Docker Compose
 
@@ -62,6 +64,3 @@ Pawtucket (client UI) will be running on http://server-ip:8080/
 
     # Go to https://domain_or_ip:8080/providence to setup the database structure
 
-## Image build
-
-`docker build --tag collective:latest .`
