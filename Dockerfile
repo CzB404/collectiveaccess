@@ -8,9 +8,9 @@ ENV APACHE_RUN_DIR      /var/run/apache2
 ENV APACHE_LOCK_DIR     /var/lock/apache2
 ENV APACHE_LOG_DIR      /var/log/apache2
 
-ENV CA_PROVIDENCE_VERSION=1.7.8
+ENV CA_PROVIDENCE_VERSION=1.7.13
 ENV CA_PROVIDENCE_DIR=/var/www/providence
-ENV CA_PAWTUCKET_VERSION=1.7.8
+ENV CA_PAWTUCKET_VERSION=1.7.13
 ENV CA_PAWTUCKET_DIR=/var/www
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -35,7 +35,8 @@ RUN apt-get update && apt-get install -y apache2 \
 
 #GMAGICK
 RUN apt-get install -y php-pear php7.4-dev graphicsmagick libgraphicsmagick1-dev \
-	&& pecl install gmagick-2.0.4RC1
+        && pecl channel-update pecl.php.net \
+	&& pecl install gmagick-2.0.6RC1
 
 RUN curl -SsL https://github.com/collectiveaccess/providence/archive/$CA_PROVIDENCE_VERSION.tar.gz | tar -C /var/www/ -xzf -
 RUN mv /var/www/providence-$CA_PROVIDENCE_VERSION /var/www/providence
