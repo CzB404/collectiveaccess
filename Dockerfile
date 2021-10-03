@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y apache2 \
 	php-ldap \
 	libapache2-mod-php7.4 \
 	mysql-client \
+        dcraw \
 	ffmpeg \
 	ghostscript \
 	imagemagick \
@@ -55,6 +56,8 @@ RUN chown -R www-data:www-data /var/www
 # Create a backup of the default conf files in case directory is mounted
 RUN mkdir -p /var/ca/providence/conf
 RUN cp -r /$CA_PROVIDENCE_DIR/app/conf/* /var/ca/providence/conf
+RUN mkdir -p /var/ca/pawtucket/conf
+RUN cp -r /$CA_PAWTUCKET_DIR/app/conf/* /var/ca/pawtucket/conf
 
 # Copy our local files
 COPY php.ini /etc/php/7.4/apache2/php.ini

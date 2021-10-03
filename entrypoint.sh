@@ -16,6 +16,9 @@ cd $CA_PROVIDENCE_DIR && chown www-data:www-data . -R && chmod -R u+rX .
 if [[ ! "$(ls -A /$CA_PROVIDENCE_DIR/app/conf/)" ]]; then
 	cp -r /var/ca/providence/conf/* /$CA_PROVIDENCE_DIR/app/conf/
 fi
+if [[ ! "$(ls -A /$CA_PAWTUCKET_DIR/app/conf/)" ]]; then
+	cp -r /var/ca/pawtucket/conf/* /$CA_PAWTUCKET_DIR/app/conf/
+fi
 
 sweep() {
 	local ca="$ca"
