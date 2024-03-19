@@ -1,5 +1,8 @@
 # CollectiveAccess
 
+## News
+- Providence Version 1.7.17
+
 ## About
 
 - Contains both Providence and Pawtucket2
@@ -29,7 +32,7 @@ Thanks to @martjanz for contributing.
 
 The first time this command is run MySQL database will be created from scratch.
 
-If any error occur you can check containers status with `docker ps -a` and if something happened on backend container probably is due to a lagged start of MySQL server. Running `docker-compose -p film up -d` will trigger a backend restart and will fix it.
+If any error occur you can check containers status with `docker ps -a` and if something happened on backend container probably is due to a lagged start of MySQL server. Running `docker-compose -p collectiveaccess up -d` will trigger a backend restart and will fix it.
 
 Providence (admin UI) will be running on http://server-ip:8080/providence
 Pawtucket (client UI) will be running on http://server-ip:8080/
