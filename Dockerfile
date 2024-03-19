@@ -8,13 +8,14 @@ ENV APACHE_RUN_DIR      /var/run/apache2
 ENV APACHE_LOCK_DIR     /var/lock/apache2
 ENV APACHE_LOG_DIR      /var/log/apache2
 
-ENV CA_PROVIDENCE_VERSION=1.7.13
+ENV CA_PROVIDENCE_VERSION=1.7.17
 ENV CA_PROVIDENCE_DIR=/var/www/providence
-ENV CA_PAWTUCKET_VERSION=1.7.13
+ENV CA_PAWTUCKET_VERSION=1.7.15
 ENV CA_PAWTUCKET_DIR=/var/www
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt update && apt upgrade -y
 RUN apt-get update && apt-get install -y apache2 \
 	curl \
 	wget \
