@@ -2,20 +2,20 @@ version: "3.5"
 services:
   db:
     image: mysql:5.7
+    container_name: mysql
     volumes:
-      - ./db-data:/var/lib/mysql
+      - db-data:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=collective
       - MYSQL_ROOT_PASSWORD=rootpass
       - MYSQL_USER=user
       - MYSQL_PASSWORD=pass
-    expose:
-      - "3306"
-        # ports:
-        # - "3306:3306"
+    ports:
+      - "3306:3306"
 
   backend:
-    image: collective:latest
+    image: bcziraki/collectiveaccess:latest
+    container_name: collectiveaccess
     environment:
       - DB_HOST=db
       - DB_NAME=collective
@@ -26,9 +26,9 @@ services:
       - ADMIN_EMAIL=admin@my-archive.tld # optional
       - SMTP_SERVER=mail.my-archive.tld  # optional
     volumes:
-        - ./backend-config:/var/www/providence/app/conf
-        - ./backend-media:/var/www/providence/media/
-        - ./frontend-config:/var/www/app/conf
+        - backend-config:/var/www/providence/app/conf
+        - backend-media:/var/www/providence/media/
+        - frontend-config:/var/www/app/conf
     depends_on:
       - db
     ports:
@@ -38,3 +38,4 @@ volumes:
   db-data:
   backend-config:
   backend-media:
+  frontend-config:
