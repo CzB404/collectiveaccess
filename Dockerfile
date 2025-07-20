@@ -42,7 +42,6 @@ RUN apt update && \
     php8.2-gmp \
     php8.2-ldap \
 	php8.2-opcache \
-	php8.2-process \
     libapache2-mod-php8.2 \
     mysql-client \
 	dcraw \
